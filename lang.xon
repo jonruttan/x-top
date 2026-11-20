@@ -1,0 +1,13 @@
+; lang.xon -- what this bundle is.
+
+(lang "top")
+
+; Self-contained: this bundle depends on nothing but the platform.
+;
+; Helium, plus exactly the libraries this bundle imports and nothing
+; ambient: the machine's records (Host), the terminal and the screen.
+(dialect he)
+
+(requires-release "v0.59.0")
+
+(entry "run.x")
