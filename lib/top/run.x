@@ -1,11 +1,12 @@
 ; # x-top -- an interactive process viewer on x-lang
 ;
-; ## run.x -- the entry
+; ## lib/top/run.x -- the entry
 ;
 ; @description `x -l top -- [OPTIONS]`.
 ; @author [Jon Ruttan](jonruttan@gmail.com)
 ; @copyright 2026 Jon Ruttan
 ; @license MIT No Attribution (MIT-0)
+(module top/run)
 (import top/base)
 
 (set! %lang-name "top")
@@ -18,5 +19,11 @@
   (fn (_ a) (List any? (fn (_ f) (str=? a f)) (list "--batch" "--quiet" "--no-color"))))
 (def %operands
   (fn (self l) (if (if (null? l) #f (%engine-flag? (first l))) (self (rest l)) l)))
-(let ((ops (%operands (rest (Sys args (lit program))))))
-  (unless (null? ops) (Sys exit (top-main ops))))
+
+; With no operands the session goes on to the REPL.
+(def main
+  (fn (_)
+    (let ((ops (%operands (rest (Sys args (lit program))))))
+      (unless (null? ops) (Sys exit (top-main ops))))))
+
+(provide top/run main)
