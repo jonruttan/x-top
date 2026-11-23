@@ -5,7 +5,7 @@ after htop: a bar a processor, memory and swap meters, the task counts, load
 and uptime, then the processes, sorted, searched, filtered or as a tree, with
 signals and nice values sent from the keyboard.
 
-    x -l top -- [OPTIONS]
+    x -l top [-- OPTIONS]
 
 It reads the machine through x-lang's `Host` records, so it runs on Linux
 (`/proc`) and macOS (sysctl and the Mach calls) alike and never asks which.
