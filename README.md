@@ -62,6 +62,10 @@ macOS reports another user's memory and CPU time only to root, as for htop.
 
     make test     # every spec, loud
     make check    # the gate CI runs
+    make card     # docs/card.md: its format and its rows
+
+[docs/card.md](docs/card.md) is the card: the options, the keys and the
+screen in tables, and rows that `make card` runs.
 
 The specs make their samples by hand, so a screen comes out the same on any
 kernel; one case reads the machine it runs on.
